@@ -1,0 +1,33 @@
+﻿<Window x:Class="Bookmaster.View.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bookmaster.View.Windows"
+        mc:Ignorable="d"
+        Title="Bookmaster9000" 
+        MinHeight="720" MinWidth="1280" Height="900" Width="1600"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Menu>
+            <MenuItem Header="Файл">
+                <MenuItem Name="LoginMi" Click="LoginMi_Click" Header="Вход"/>
+                <MenuItem Name="LogoutMi" Click="LogoutMi_Click" Header="Выход"/>
+                <MenuItem Name="CloseMi" Click="CloseMi_Click"  Header="Закрыть"/>
+            </MenuItem>
+
+            <MenuItem Header="Библиотека">
+                <MenuItem Name="BrowseCatalogMi" Click="BrowseCatalogMi_Click"  Header="Каталог книг"/>
+                <MenuItem Name="ManageCustomersMi" Click="ManageCustomersMi_Click"  Header="Управление читателями"/>
+                <MenuItem Name="CirculationMi" Click="CirculationMi_Click"  Header="Абонемент"/>
+                <MenuItem Name="ReportsMi" Click="ReportsMi_Click"  Header="Отчёты"/>
+            </MenuItem>
+        </Menu>
+        <Frame Name ="MainFrm" Grid.Row="2" NavigationUIVisibility="Hidden" Margin="10"/>
+    </Grid>
+</Window>
