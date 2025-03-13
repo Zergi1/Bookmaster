@@ -8,7 +8,7 @@
       d:DesignHeight="800" d:DesignWidth="1580"
       Title="Простмотр каталога">
 
-    <Grid>
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400"/>
             <ColumnDefinition Width="10"/>
@@ -16,9 +16,75 @@
         </Grid.ColumnDefinitions>
         
         <!--#region Понель поиска-->
-        
-        
-        
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.ColumnSpan="3"  Source="/Resousces/Images/logo.png" />
+
+            <TextBlock Grid.Row="2" Text="Название"/>
+            <TextBox Name="SearchByBookTitleTb" Grid.Row="2" Grid.Column="2" Height="25"/>
+
+            <TextBlock Grid.Row="4" Text="Автор"/>
+            <TextBox Grid.Row="4" Height="25" Name="SearchByAuthorNameTb" Grid.Column="2"/>
+
+            <TextBlock Grid.Row="6" Text="Жанр"/>
+            <TextBox Grid.Row="6" Height="25" Grid.Column="2"/>
+
+            <Button Grid.Row="8" Height="35" Grid.ColumnSpan="3"   Width="300" Content="Найти" Name="SearchBtn" 
+                    Click="SearchBtn_Click"/>
+
+        </Grid>
         <!--#endregion -->
+
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="1*"/>
+              
+            </Grid.RowDefinitions>
+
+            <!--#region Результаты поиска-->
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="5"/>
+                </Grid.RowDefinitions>
+
+                <ListView Name="BookAuthorLv">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Название книги" DisplayMemberBinding="{Binding Book.Title}"/>
+                            <GridViewColumn Header="Имя автора" DisplayMemberBinding="{Binding Author.Name}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                
+            </Grid>
+            
+            <!--#endregion -->
+
+        </Grid>
+        
     </Grid>
 </Page>

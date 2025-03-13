@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Bookmaster.View.Pages;
+using System.Windows;
 
 namespace Bookmaster.View.Windows
 {
@@ -10,6 +11,7 @@ namespace Bookmaster.View.Windows
         public MainWindow()
         {
             InitializeComponent();
+            LogoutMi.Visibility = Visibility.Collapsed;
         }
 
         private void LoginMi_Click(object sender, RoutedEventArgs e)
@@ -25,27 +27,27 @@ namespace Bookmaster.View.Windows
 
         private void CloseMi_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
 
         private void BrowseCatalogMi_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrm.Navigate(new BrowseCatalogPage());
         }
 
         private void ManageCustomersMi_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrm.Navigate(new ManageCustomersPage());
         }
 
         private void CirculationMi_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrm.Navigate(new CirculationPage());
         }
 
         private void ReportsMi_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrm.Navigate(new ReportsPage());
         }
     }
 }
