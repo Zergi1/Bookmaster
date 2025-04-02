@@ -9,13 +9,19 @@ namespace Bookmaster.AppData
         // Определям поля для хранения данных
         private const int PAGE_SIZE = 50;
         private readonly List<Book> _books;
-        private int _currentPageIndex;
-        private int _currentPageNumber;
+        private int _currentPageIndex = 0;
+        private int _currentPageNumber = 1;
 
         // Определяем свойства для вычисления и хранения данных
 
         public int BooksCount => _books.Count;
         public int TotalPages => (BooksCount + PAGE_SIZE - 1) / PAGE_SIZE;
         public List<Book> CurrentPageOfBooks => _books.Skip(_currentPageIndex * PAGE_SIZE).Take(PAGE_SIZE).ToList();
+
+        // Определение конструктор класса для создания Объекта. В контруктор передаем полный список книг.
+        public PaginationService(List<Book> books)
+        {
+            _books = books;
+        }
     }
 }
