@@ -46,8 +46,7 @@ namespace Bookmaster.View.Pages
 
             BookAuthorLv.ItemsSource = _booksPagination.CurrentPageOfBooks;
 
-            TotalPagesTbl.Text = _booksPagination.TotalPages.ToString();
-            TotalBooksTbl.Text = _booksPagination.BooksCount.ToString();
+            TotalPagesTbl.DataContext = TotalBooksTbl.DataContext = _booksPagination;
 
             SearchResultsGrid.Visibility = Visibility.Visible;
 
