@@ -45,26 +45,33 @@ namespace Bookmaster.View.Pages
             }
 
             BookAuthorLv.ItemsSource = _booksPagination.CurrentPageOfBooks;
-
+            CurrentpageTb.Text = _booksPagination.CurrentPageNumber.ToString();
             TotalPagesTbl.DataContext = TotalBooksTbl.DataContext = _booksPagination;
-
+            _booksPagination.UpdatePaginationButtons(NextBookBtn, PreviousBookBtn);
             SearchResultsGrid.Visibility = Visibility.Visible;
 
         }
 
         private void PreviousBookBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            BookAuthorLv.ItemsSource = _booksPagination.PreviusPage();
+            _booksPagination.UpdatePaginationButtons(NextBookBtn, PreviousBookBtn);
+            CurrentpageTb.Text = _booksPagination.CurrentPageNumber.ToString();
         }
 
         private void CurrentpageTb_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (int.TryParse(CurrentpageTb.Text, out int pageNumber) && pageNumber => 1 && pageNumber <= _booksPagination.TotalPages)
+            {
 
+            }
         }
 
         private void NextBookBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            BookAuthorLv.ItemsSource = _booksPagination.NextPage();
+            _booksPagination.UpdatePaginationButtons(NextBookBtn, PreviousBookBtn);
+            CurrentpageTb.Text = _booksPagination.CurrentPageNumber.ToString();
         }
     }
 }
