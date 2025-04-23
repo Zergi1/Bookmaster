@@ -54,7 +54,7 @@
         <!--#endregion -->
 
         <!--#region Результаты поиска-->
-        <Grid Name="SearchResultsGrid" Grid.Column="2" Visibility="Hidden">
+        <Grid Name="SearchResultsGrid" Grid.Column="2" Visibility="Visible">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="15"/>
@@ -102,7 +102,7 @@
                     <Button Name="PreviousBookBtn" Grid.Column="2" Content="&lt;"
                             Click="PreviousBookBtn_Click"/>
 
-                    <TextBox Name="CurrentpageTb" Grid.Column="4" 
+                    <TextBox Name="CurrentpageTb" Text="0" Grid.Column="4" 
                              HorizontalContentAlignment="Center" TextChanged="CurrentpageTb_TextChanged"/>
 
                     <Button Name="NextBookBtn" Grid.Column="6" Content="&gt;"
@@ -112,6 +112,64 @@
                     <TextBlock Name="TotalBooksTbl" Text="{Binding BooksCount,  StringFormat=Книг найдено: {0}}" Grid.Column="12"/>
 
                 
+                </Grid>
+            </Grid>
+            <!--#endregion -->
+            
+            <!--#region подробное описания книги -->
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="300"/>
+                </Grid.ColumnDefinitions>
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text=" БАБАбой" FontSize="30" FontWeight="SemiBold" />
+                    <TextBlock Text=" Книга про анигеляцию демонов из ДУМА" Grid.Row="2" />
+                    <TextBlock Text=" Дьячков М.А. Набойшиков А.А. НУров Н.Ф." Grid.Row="4" />
+                    <TextBlock Text=" 2055 Году 16 мая в 13:00" Grid.Row="6" />
+                    <TextBlock Text=" Описывает как защитить мир от пришествия демоном и как от них избавится, тоесть выйграть полностью. Описывает их слабые места и их зоны обитания в аду и их главарей" Grid.Row="10" />
+                    <TextBlock Text=" Описание " FontWeight="SemiBold" Grid.Row="8" />
+                    <TextBlock Text=" Жесткая реальность 2055" Grid.Row="14"/>
+                    <TextBlock Text=" Жанры"  FontWeight="SemiBold" Grid.Row="12"/>
+                </Grid>
+                    
+                    
+                <Grid Grid.Column="2">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.ColumnSpan="3" Source="/Resousces/Images/booklogo.jpg" />
+                    <Button Grid.Row="2" Content="&lt;"/>
+                    <Button Grid.Row="2" Content="&gt;" Grid.Column="2"/>
                 </Grid>
             </Grid>
             <!--#endregion -->

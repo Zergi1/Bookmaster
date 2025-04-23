@@ -18,11 +18,12 @@ namespace Bookmaster.AppData
         {
             get
             {
-                return _currentPageNumber;
+                return _currentPageNumber = _currentPageIndex + 1;
             }
             set
             {
-
+                _currentPageIndex = value;
+                _currentPageNumber = value - 1;
             }
         }
 

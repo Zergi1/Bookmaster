@@ -61,9 +61,10 @@ namespace Bookmaster.View.Pages
 
         private void CurrentpageTb_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (int.TryParse(CurrentpageTb.Text, out int pageNumber) && pageNumber => 1 && pageNumber <= _booksPagination.TotalPages)
+            if (int.TryParse(CurrentpageTb.Text, out int pageNumber) && pageNumber >= 1 && pageNumber <= _booksPagination.TotalPages)
             {
-
+                BookAuthorLv.ItemsSource = _booksPagination.SetCurrentPage(pageNumber);
+                _booksPagination.UpdatePaginationButtons(NextBookBtn, PreviousBookBtn);
             }
         }
 
