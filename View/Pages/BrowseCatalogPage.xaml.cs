@@ -1,5 +1,6 @@
 ﻿using Bookmaster.AppData;
 using Bookmaster.Model;
+using Bookmaster.View.Windows;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -21,7 +22,7 @@ namespace Bookmaster.View.Pages
         public BrowseCatalogPage()
         {
             InitializeComponent();
-            BookAuthorLv.ItemsSource = _books;
+            //BookAuthorLv.ItemsSource = _books;
         }
 
         private void SearchBtn_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -73,6 +74,18 @@ namespace Bookmaster.View.Pages
             BookAuthorLv.ItemsSource = _booksPagination.NextPage();
             _booksPagination.UpdatePaginationButtons(NextBookBtn, PreviousBookBtn);
             CurrentpageTb.Text = _booksPagination.CurrentPageNumber.ToString();
+        }
+
+        private void BookAuthorLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Book selectedBook = BookAuthorLv.SelectedItem as Book;
+            BookDeta0ilsGrid.DataContext = selectedBook;
+        }
+
+        private void AuthorDetaillHl_Click(object sender, RoutedEventArgs e)
+        {
+            BookAuthorDetailsWindow bookAuthorDetailsWindow = new BookAuthorDetailsWindow();
+            bookAuthorDetailsWindow.ShowDialog();
         }
     }
 }
