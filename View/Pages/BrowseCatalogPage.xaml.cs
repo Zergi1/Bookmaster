@@ -14,10 +14,12 @@ namespace Bookmaster.View.Pages
     public partial class BrowseCatalogPage : Page
     {
         List<Book> _books = App.context.Book.ToList();
+        List<BookCover> _covers = App.context.BookCover.ToList();
 
         //Создаем объект пагинации
 
-        PaginationService _booksPagination;
+        PaginationService<Book> _booksPagination;
+        PaginationService<BookCover> _coverPagination;
 
         public BrowseCatalogPage()
         {
@@ -30,7 +32,7 @@ namespace Bookmaster.View.Pages
             if (string.IsNullOrWhiteSpace(SearchByAuthorNameTb.Text) &&
                 string.IsNullOrWhiteSpace(SearchByBookTitleTb.Text))
             {
-                _booksPagination = new PaginationService(_books);
+                _booksPagination = new PaginationService<Book>(_books);
 
             }
 
@@ -40,12 +42,12 @@ namespace Bookmaster.View.Pages
                 book.Title.ToLower().Contains(SearchByBookTitleTb.Text.ToLower()) &&
                 book.Authors.ToLower().Contains(SearchByAuthorNameTb.Text.ToLower())).ToList();
 
-                _booksPagination = new PaginationService(searchResults);
+                _booksPagination = new PaginationService<Book>(searchResults);
 
 
             }
 
-            BookAuthorLv.ItemsSource = _booksPagination.CurrentPageOfBooks;
+            BookAuthorLv.ItemsSource = _booksPagination.CurrentPageOfItems;
             CurrentpageTb.Text = _booksPagination.CurrentPageNumber.ToString();
             TotalPagesTbl.DataContext = TotalBooksTbl.DataContext = _booksPagination;
             _booksPagination.UpdatePaginationButtons(NextBookBtn, PreviousBookBtn);
