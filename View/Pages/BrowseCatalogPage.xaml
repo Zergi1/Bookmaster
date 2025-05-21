@@ -14,7 +14,7 @@
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        
+
         <!--#region Понель поиска-->
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
@@ -59,7 +59,7 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="15"/>
                 <RowDefinition Height="1*"/>
-              
+
             </Grid.RowDefinitions>
 
 
@@ -111,11 +111,11 @@
                     <TextBlock Name="TotalPagesTbl" Text="{Binding TotalPages, StringFormat=из {0}}" Grid.Column="8"/>
                     <TextBlock Name="TotalBooksTbl" Text="{Binding BooksCount,  StringFormat=Книг найдено: {0}}" Grid.Column="12"/>
 
-                
+
                 </Grid>
             </Grid>
             <!--#endregion -->
-            
+
             <!--#region подробное описания книги -->
 
             <Grid Grid.Row="2" Name="BookDeta0ilsGrid">
@@ -154,14 +154,14 @@
                     <!--ScrollViewer - элемент для прокрутки содержимого
                     строка/столбец в который  находится ScrollViewer должнны иметь высоту/ в пикселях (px)-->
                     <ScrollViewer Grid.Row="10">
-                     <TextBlock Text="{Binding Description}"  />
+                        <TextBlock Text="{Binding Description}"  />
                     </ScrollViewer>
                     <TextBlock Text="Описание" FontWeight="SemiBold" Grid.Row="8" />
                     <TextBlock Text="{Binding Subjects}" Grid.Row="14"/>
                     <TextBlock Text=" Жанры"  FontWeight="SemiBold" Grid.Row="12"/>
                 </Grid>
-                    
-                    
+
+
                 <Grid Grid.Column="2">
 
                     <Grid.RowDefinitions>
@@ -169,7 +169,7 @@
                         <RowDefinition Height="10"/>
                         <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
-                    
+
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="10"/>

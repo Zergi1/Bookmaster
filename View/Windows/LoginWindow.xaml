@@ -5,9 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bookmaster.View.Windows"
         mc:Ignorable="d"
-        Title="LoginWindow" MinHeight="720" MinWidth="1280" Height="900" Width="900"
+        Title="Login" SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="190"/>
+            <ColumnDefinition Width="330"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="595"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="UserName" Grid.Column="1" Grid.Row="1" FontSize="60" TextAlignment="Center"/>
+        <TextBlock Text="Password" Grid.Column="1" Grid.Row="3" FontSize="60" TextAlignment="Center"/>
         
+        <TextBox  Grid.Column="3" Grid.Row="1" FontSize="60" TextAlignment="Center" />
+        <TextBox  Grid.Column="3" Grid.Row="3" FontSize="60" TextAlignment="Center" />
+
+        <Grid Grid.Column="3" Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Content="Login" Grid.Column="0" />
+            <Button Content="Cancel" Grid.Column="2"/>
+
+        </Grid>
     </Grid>
 </Window>
