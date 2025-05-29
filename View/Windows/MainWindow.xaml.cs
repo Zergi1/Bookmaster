@@ -38,7 +38,6 @@ namespace Bookmaster.View.Windows
         private void ManageCustomersMi_Click(object sender, RoutedEventArgs e)
         {
             MainFrm.Navigate(new ManageCustomersPage());
-            MainWindow.Show();
         }
 
         private void CirculationMi_Click(object sender, RoutedEventArgs e)

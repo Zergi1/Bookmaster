@@ -29,11 +29,7 @@ namespace Bookmaster.View.Windows
 
         private void OpenWikipediaHl_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
         {
-            Close();
-        }
 
-        private void CloseBtn_Click(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
-        {
             try
             {
                 Process.Start(e.Uri.AbsoluteUri);
@@ -42,6 +38,11 @@ namespace Bookmaster.View.Windows
             {
                 MessageBox.Show(exception.Message, "Ошибки", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
